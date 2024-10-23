@@ -1,0 +1,32 @@
+name: Deploy Bicep file
+on:
+  workflow_dispatch: ~
+  
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@main
+
+    - name: Log into Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy Bicep file
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ secrets.AZURE_RG }}
+        template: ./DeployAzureResources.bicep
+        parameters: >
+          customerName=biceptest 
+          environment=dev 
+          spaClientId=${{ secrets.SPA_CLIENT_ID }}
+          apiClientId=${{ secrets.API_CLIENT_ID }}
+          usersGroupId=${{ secrets.USERS_GROUP_ID }}
+          adminsGroupId=${{ secrets.ADMINS_GROUP_ID }}
+          sqlAdminPassword=${{ secrets.SQL_ADMIN_PASSWORD }}
+          apiClientSecret=${{ secrets.API_CLIENT_SECRET }}
+        failOnStdErr: false
