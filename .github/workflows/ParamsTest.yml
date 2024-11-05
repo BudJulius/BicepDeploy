@@ -19,6 +19,6 @@ jobs:
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./DeployAzureResources.bicep
+        template: ./PortalResources.bicep
         parametersFile: ${{ secrets.BICEP_PARAMETERS }}
         failOnStdErr: false
