@@ -3,7 +3,8 @@ on:
   workflow_dispatch: ~
 
 env:
-  BICEP_PARAMS: ${{ secrets.BICEP_PARAMETERS }}
+  BICEP_PARAMS_JSON: ${{ secrets.BICEP_PARAMETERS_JSON }}
+  BICEP_PARAMS_STRING: ${{ secrets.BICEP_PARAMETERS_STRING }}
   AZURE_SUBSCRIPTION: ${{ secrets.AZURE_SUBSCRIPTION }}
 
 jobs:
