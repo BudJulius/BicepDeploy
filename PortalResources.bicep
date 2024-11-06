@@ -41,7 +41,7 @@ param sqlAdminName string
 @secure()
 param sqlAdminEntraObjectId string
 
-param fabricAdmins array
+// param fabricAdmins array
 
 var keyVaultSecretsUserRole = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86b69e6')
 
