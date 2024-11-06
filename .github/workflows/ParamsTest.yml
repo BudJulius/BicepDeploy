@@ -20,5 +20,5 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./PortalResources.bicep
-        parametersFile: ${{ secrets.BICEP_PARAMETERS }}
+        parameters: ${{ secrets.BICEP_PARAMETERS }}
         failOnStdErr: false
