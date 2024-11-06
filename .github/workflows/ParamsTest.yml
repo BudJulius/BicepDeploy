@@ -1,6 +1,10 @@
 name: ParamsTest
 on:
   workflow_dispatch: ~
+
+env:
+  BICEP_PARAMS: ${{ secrets.BICEP_PARAMETERS }}
+
   
 jobs:
   build-and-deploy:
@@ -20,5 +24,5 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./PortalResources.bicep
-        parameters: ${{ secrets.BICEP_PARAMETERS }}
+        parameters: ${{ env.BICEP_PARAMS }}
         failOnStdErr: false
